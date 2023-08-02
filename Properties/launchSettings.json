@@ -1,0 +1,36 @@
+﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:52003",
+      "sslPort": 44345
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "APP_NAME": "o365tool",
+        "AZURE_APP_CONFIGURATION_URI": "https://dbp-east-appcfg-shared-appconfig.azconfig.io",
+        "AZURE_KEY_VAULT_SHARED_URI": "https://dbp-east-kv-int-shared.vault.azure.net/",
+        "DB_ENV": "int"
+      }
+    },
+    "O365Automation": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "APP_NAME": "o365tool",
+        "AZURE_APP_CONFIGURATION_URI": "https://dbp-east-appcfg-shared-appconfig.azconfig.io",
+        "AZURE_KEY_VAULT_SHARED_URI": "https://dbp-east-kv-int-shared.vault.azure.net/",
+        "DB_ENV": "int"
+      }
+    }
+  }
+}
