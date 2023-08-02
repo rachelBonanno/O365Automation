@@ -1,0 +1,14 @@
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: Pipelines/Pipelines
+
+extends:
+  template: dotnet-api.yaml@templates
+  parameters:
+    azureSubscription: ADO-Build-internal-tools
+    runIntegrationTests: false
+    dockerImages:
+    - dockerFile: Dockerfile
+      repository: O365Automation

@@ -1,0 +1,43 @@
+services:
+  o365automation:
+    container_name: o365automation
+    build:
+      context: .
+      args:
+        FEED_ACCESSTOKEN: ${FEED_ACCESSTOKEN}
+    volumes:
+      - ./integration/integration.json:/app/config.json
+      - ./logs:/app/logs
+      - ./integration/data:/app/data
+    environment:
+      DB_ENV: int
+      APP_NAME: banner.webapi
+      AZURE_APP_CONFIGURATION_URI: https://dbp-east-appcfg-shared-appconfig.azconfig.io/
+      AZURE_KEY_VAULT_SHARED_URI: https://dbp-east-kv-int-shared.vault.azure.net/
+      AZURE_KEY_VAULT_APP_URI: https://dbp-east-kv-int-{replace-me}.vault.azure.net/
+      AZURE_CLIENT_ID: ${AZURE_CLIENT_ID}
+      AZURE_CLIENT_SECRET: ${AZURE_CLIENT_SECRET}
+      AZURE_TENANT_ID: ${AZURE_TENANT_ID}
+    healthcheck:
+      test: wget --no-verbose --tries=1 http://localhost/health || exit 1
+      interval: 10s
+      timeout: 10s
+      retries: 10
+    profiles:
+      - test
+
+  newman:
+    image: dannydainton/htmlextra
+    container_name: newman
+    depends_on:
+      o365automation:
+        condition: service_health
+    volumes:
+      - ./integration:/etc/newman
+    command:
+      run O365Automation.postman_collection.json --environment Integration.postman_environment.json --reporters "cli,junit,htmlextra" --reporter-junit-export="newman-report.xml" --reporter-htmlextra-export="html-report.html"
+    profiles:
+      - test
+
+
+
