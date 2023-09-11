@@ -1,7 +1,7 @@
 O365Automation
 
 Data Removed
-Pages/Index.cshtml.cs - tenant ID and client ID
+Pages/Index.cshtml.cs - tenant ID and client ID <br>
 docker-compose.yml - app name, Azure app configuration uri, Azure key vault shared uri, and Azure key vault app uri
 
 Build
