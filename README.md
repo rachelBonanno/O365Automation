@@ -1,5 +1,9 @@
 O365Automation
 
+Data Removed
+Pages/Index.cshtml.cs - tenent ID and client ID
+
+
 Build
 Run dotnet build
 
