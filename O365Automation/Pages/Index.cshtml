@@ -1,0 +1,156 @@
+﻿@page
+@model Index
+@{
+    ViewData["O365 Automation"] = "Home page";
+}
+@*<head>
+    <link rel="stylesheet" type="text/css" href="O365Automation/Style/StyleSheet.css" />
+</head>*@
+
+<script type="text/javascript">
+    //function to check the word and apply the appropriate CSS class
+    function applyColorClass(cell) {
+        var word = cell.textContent.trim();
+
+        if (word === "n/a") {
+            cell.classList.add("green-cell");
+            //remove any other class to avoid conflict
+            cell.classList.remove("red-cell");
+            cell.classList.remove("orange-cell");
+            cell.classList.remove("yellow-cell");
+        } else if (word === "high") {
+            cell.classList.add("red-cell");
+            //remove any other class to avoid conflict
+            cell.classList.remove("green-cell");
+            cell.classList.remove("orange-cell");
+            cell.classList.remove("yellow-cell");
+        } else if (word === "medium") {
+            cell.classList.add("orange-cell");
+            //remove any other class to avoid conflict
+            cell.classList.remove("green-cell");
+            cell.classList.remove("red-cell");
+            cell.classList.remove("yellow-cell");
+        } else if (word === "low") {
+            cell.classList.add("yellow-cell");
+            //remove any other class to avoid conflict
+            cell.classList.remove("green-cell");
+            cell.classList.remove("red-cell");
+            cell.classList.remove("orange-cell");
+        }
+    }
+
+    // function to observe changes in the cell content
+    function observeCellChanges(severity) {
+        var cell = document.getElementById(severity);
+        var observer = new MutationObserver(function(mutationsList) {
+            for (var mutation of mutationsList) {
+                if (mutation.type === "childList") {
+                    applyColorClass(cell);
+                }
+            }
+        });
+        observer.observe(cell, { childList: true });
+    }
+
+    // updates the color of each severity based on it's value
+    function color() {
+        let size = document.getElementById("theTable").rows.length;
+        for (let i = 0; i < size; i++) {
+            let severity = "severity" + (i+1)
+            observeCellChanges(severity);
+            applyColorClass(document.getElementById(severity));
+        }
+    }
+
+    // Event listener to apply color to intial load
+    document.addEventListener("DOMContentLoaded", function() {
+        color();
+    });
+
+    setInterval(color, 5000);
+</script>
+
+<style>
+    .header {
+        text-align: center;
+        
+    }
+
+
+    .dataTable {
+        display: block;
+    }
+
+    table, th, td {
+        border: 1px solid;
+        font-size: 12px;
+    }
+
+    td {
+        white-space: wrap;
+        overflow: auto;
+        width: auto;
+    }
+
+    .green-cell {
+        background-color: palegreen;
+    }
+
+    .yellow-cell {
+        background-color: goldenrod
+    }
+
+    .orange-cell {
+        background-color: chocolate
+    }
+
+    .red-cell {
+        background-color: firebrick
+    }
+
+</style>
+
+<div class="header">
+    <h1 class="headerTitle">O365 Automation</h1>
+    <a class="login" id="login" asp-page="Index" asp-page-handler="MyOnClick">Sign into Microsoft</a>
+<div/>
+
+<div class="dataTable" id="dataTable">
+    <br/>
+    <table class="arrowes-table table-striped" id="theTable">
+        <thead>
+            <tr>
+                <th class="category">Category</th>
+                <th class="control">Control</th>
+                <th class="name">Control Name</th>
+                <th class="description">Description</th>
+                <th class="status">Implementation Status</th>
+                <th class="aad">AAD Controls Source</th>
+                <th class="additionaldata">Additional Data</th>
+                <th class="severity">Severity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="category">Account Password Policy</td>
+                <td class="control">Passwords are set to expire.</td>
+                <td class="name">@ViewData["PWAgePolicyNew_ControlName"]</td>
+                <td class="description">@ViewData["PWAgePolicyNew_Description"]</td>
+                <td class="status">@ViewData["PWAgePolicyNew_implementationStatus"]</td>
+                <td class="aad">@ViewData["PWAgePolicyNew_AADControlsSource"]</td>
+                <td class="additionaldata">@ViewData["PWAgePolicyNew_AdditionalData"]</td>
+                <td class="severity" id="severity1" contenteditable="true">@ViewData["PWAgePolicyNew_Severity"]</td>
+            </tr>
+            <tr>
+                <td class="category">Account Security</td>
+                <td class="control">There are between two and four global administrative accounts in use.</td>
+                <td class="name">@ViewData["OneAdmin_ControlName"]</td>
+                <td class="description">@ViewData["OneAdmin_Description"]</td>
+                <td class="status">@ViewData["OneAdmin_implementationStatus"]</td>
+                <td class="aad">@ViewData["OneAdmin_AADControlsSource"]</td>
+                <td class="additionaldata">@ViewData["OneAdmin_AdditionalData"]</td>
+                <td class="severity" id="severity2" contenteditable="true">@ViewData["OneAdmin_Severity"]</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

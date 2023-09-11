@@ -1,0 +1,46 @@
+{
+  "Version": 1,
+  "Hash": "kM7XrKQXMc6oFbXSySDWDzr+YID9mwwa/tCKPZpoe3A=",
+  "Source": "O365Automation",
+  "BasePath": "_content/O365Automation",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\rbonanno\\Source\\Repos\\backup\\cs-tools\\O365Automation\\obj\\Debug\\net6\\scopedcss\\bundle\\O365Automation.styles.css",
+      "SourceId": "O365Automation",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\rbonanno\\Source\\Repos\\backup\\cs-tools\\O365Automation\\obj\\Debug\\net6\\scopedcss\\bundle\\",
+      "BasePath": "_content/O365Automation",
+      "RelativePath": "O365Automation.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\rbonanno\\Source\\Repos\\backup\\cs-tools\\O365Automation\\obj\\Debug\\net6\\scopedcss\\bundle\\O365Automation.styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\rbonanno\\Source\\Repos\\backup\\cs-tools\\O365Automation\\obj\\Debug\\net6\\scopedcss\\projectbundle\\O365Automation.bundle.scp.css",
+      "SourceId": "O365Automation",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\rbonanno\\Source\\Repos\\backup\\cs-tools\\O365Automation\\obj\\Debug\\net6\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/O365Automation",
+      "RelativePath": "O365Automation.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\rbonanno\\Source\\Repos\\backup\\cs-tools\\O365Automation\\obj\\Debug\\net6\\scopedcss\\projectbundle\\O365Automation.bundle.scp.css"
+    }
+  ]
+}
