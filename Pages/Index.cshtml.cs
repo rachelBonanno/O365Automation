@@ -46,10 +46,12 @@ namespace WebApplication1.Pages
 
             // Multi-tenant apps can use "common",
             // single-tenant apps must use the tenant ID from the Azure portal
-            var tenantId = "8dfc9e23-2f59-47a5-b871-08c3c60ea7a0";
+            // fill in with tenant ID from Azure portal
+            var tenantId = "";
 
             // Value from app registration
-            var clientId = "16d6e020-a2bd-47cd-9f2e-251d4f4f5548";
+            // fill in with client ID from Azure portal
+            var clientId = "";
 
            // https://learn.microsoft.com/dotnet/api/azure.identity.devicecodecredential
             var deviceCodeCredential = new InteractiveBrowserCredential(tenantId, clientId);
