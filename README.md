@@ -1,8 +1,8 @@
 O365Automation
 
 Data Removed
-Pages/Index.cshtml.cs - tenent ID and client ID
-
+Pages/Index.cshtml.cs - tenant ID and client ID
+docker-compose.yml - app name, Azure app configuration uri, Azure key vault shared uri, and Azure key vault app uri
 
 Build
 Run dotnet build
@@ -18,14 +18,14 @@ If you want to override local configuration, you can do so by creating a config.
 
 What V1.0 (08/02/2023) Does:
 - is a razor page that logs in to Microsoft and sends get requests to Microsoft Graph API
-- the recieved data is enetered into a table and the severity of each responce is determined in the Index.cshtml.cs file
-- the severity columb is editable and will change color based on the severity inputed
+- the received data is entered into a table and the severity of each response is determined in the Index.cshtml.cs file
+- the severity column is editable and will change color based on the severity input
 
 To Do (Next Steps):
-- this is not necassary but might make the code cleaner - if the CSS and JS info on the Index.cshtml file were put in there own file and then called from the Index file
-- add a way for the user to enter the tenantId and the clientId on the webapp so that they have the ability to log inot any microsoft account they want
-- for the first two columbs of the table (category and control) automate the endtry of that data by pulling from the excel sheet with all of the O365 questions so that the CS team only has to update that document to keep the web app up to date with the questions
+- this is not necessary but might make the code cleaner - if the CSS and JS info on the Index.cshtml file were put in there own file and then called from the Index file
+- add a way for the user to enter the tenantId and the clientId on the webapp so that they have the ability to log in to any microsoft account they want
+- for the first two columns of the table (category and control) automate the entry of that data by pulling from the excel sheet with all of the O365 questions so that the CS team only has to update that document to keep the web app up to date with the questions
 - for the above point this may require coming up with a script to convert the get request to a format like in the Index.cshtml.cs file
-- add the rest of the O365 questions (a lot of the questions have the same intial request and can be differentiated by the ControlName that is located under the ControlScores, this might be a good thing to add to the spreadsheet with the O365 questions so that after the get request it can be focused down by the control name, also each control name may have multiple instances but it lookes like only one has a discription so if you filter but the discription not being null it fixes this issue but one thing to look into is if the most resent call is the only one with a discription I did not have the time to see if that was true of if there was only an old instance with a discription that was getting pulled in)
+- add the rest of the O365 questions (a lot of the questions have the same initial request and can be differentiated by the ControlName that is located under the ControlScores, this might be a good thing to add to the spreadsheet with the O365 questions so that after the get request it can be focused down by the control name, also each control name may have multiple instances but it looks like only one has a description so if you filter but the description not being null it fixes this issue but one thing to look into is if the most resent call is the only one with a description I did not have the time to see if that was true of if there was only an old instance with a description that was getting pulled in)
 - allow the CS team to submit the data on the page and have it be saved to the client sheet 
-- allow for the data that was updated on the sheet by the CS team to be saved between page reloads and loging in and out of the page
+- allow for the data that was updated on the sheet by the CS team to be saved between page reloads and logging in and out of the page
