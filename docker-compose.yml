@@ -11,10 +11,10 @@ services:
       - ./integration/data:/app/data
     environment:
       DB_ENV: int
-      APP_NAME: banner.webapi
-      AZURE_APP_CONFIGURATION_URI: https://dbp-east-appcfg-shared-appconfig.azconfig.io/
-      AZURE_KEY_VAULT_SHARED_URI: https://dbp-east-kv-int-shared.vault.azure.net/
-      AZURE_KEY_VAULT_APP_URI: https://dbp-east-kv-int-{replace-me}.vault.azure.net/
+      APP_NAME: <app name>
+      AZURE_APP_CONFIGURATION_URI: <app config uri>
+      AZURE_KEY_VAULT_SHARED_URI: <key vault shared uri>
+      AZURE_KEY_VAULT_APP_URI: <key vault app uri>
       AZURE_CLIENT_ID: ${AZURE_CLIENT_ID}
       AZURE_CLIENT_SECRET: ${AZURE_CLIENT_SECRET}
       AZURE_TENANT_ID: ${AZURE_TENANT_ID}
